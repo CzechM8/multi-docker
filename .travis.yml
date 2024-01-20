@@ -18,6 +18,7 @@ after_suuccess:
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
   # Take those images and push them to docker hub
   - docker push jleshardin/multi-client
+  - docker push jleshardin/multi-client
   - docker push jleshardin/multi-nginx
   - docker push jleshardin/multi-server
   - docker push jleshardin/multi-worker
