@@ -1,0 +1,16 @@
+language: generic
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t jleshardin/react-test -f ./client/Dockerfile.dev ./client
+
+script:
+  - docker run -e CI=true jleshardin/react-test npm test
+
+after_suuccess:
+  - docker build -t jleshardin/multi-client ./client
+  - docker build -t jleshardin/multi-nginx ./nginx
+  - docker build -t jleshardin/multi-server ./server
+  - docker build -t jleshardin/multi-worker ./worker
