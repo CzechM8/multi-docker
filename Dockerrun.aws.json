@@ -5,24 +5,29 @@
             "name": "client",
             "image": "jleshardin/multi-client",
             "hostname": "client",
-            "essential": false
+            "essential": false,
+            "memoryReservation": 32
+
         },
         {
             "name": "server",
             "image": "jleshardin/multi-server",
             "hostname": "api",
-            "essential": false
+            "essential": false,
+            "memoryReservation": 32
         },
         {
             "name": "worker",
             "image": "jleshardin/multi-worker",
             "hostname": "worker",
-            "essential": false
+            "essential": false,
+            "memoryReservation": 32
         },
         {
             "name": "nginx",
             "image": "jleshardin/multi-nginx",
             "essential": true,
+            "memoryReservation": 32,
             "portMappings": [
                 {
                     "hostPort": 80,
