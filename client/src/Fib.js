@@ -19,10 +19,13 @@ class Fib extends Component {
   }
 
   async fetchIndexes() {
+    console.log('DEBUG: fetching indexes');
     const seenIndexes = await axios.get('/api/values/all');
+    console.log('DEBUG: seen indexes: ', seenIndexes);
     this.setState({
       seenIndexes: seenIndexes.data,
     });
+
   }
 
   handleSubmit = async (event) => {
